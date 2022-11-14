@@ -26,7 +26,8 @@ const Tower = new Company("Tower");
 const Intel = new Company("Intel");
 Intel.AddGiftCard(IntelMax);
 Intel.AddGiftCard(IntelFoodCard);
-
+///////////
+console.log(Intel.AllCards);
 Intel.PrintGifts();
 
 ///////////////
