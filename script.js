@@ -15,10 +15,11 @@ const FoodCard = new GiftCard("FoodCard", 25);
 const Japanica = new GiftCard("Japanica", 5);
 
 ////create IntelGift
-const IntelMax = new IntelGift("IntelMax", 10, Tea);
+const IntelMax = new IntelGift("IntelMax", 10);
+IntelMax.AddProducts(Tea);
 IntelMax.AddProducts(Coffee);
 IntelMax.AddProducts(IceCream);
-// console.log(IntelMax.CardName);
+console.log(IntelMax);
 const IntelFoodCard = new IntelGift("IntelFoodCard", 25, Tea);
 
 // create company
@@ -27,7 +28,6 @@ const Intel = new Company("Intel");
 Intel.AddGiftCard(IntelMax);
 Intel.AddGiftCard(IntelFoodCard);
 ///////////
-console.log(Intel.AllCards);
 Intel.PrintGifts();
 
 ///////////////
@@ -40,3 +40,5 @@ Tower.PrintGifts();
 Tower.AllCards.forEach((element) => {
   element.CalcDiscount(30);
 });
+
+console.log("Intel price for Tea after :" + IntelMax.CalcDiscount("Tea"));

@@ -1,12 +1,9 @@
 import { GiftCard } from "./GiftCard.mjs";
 export class IntelGift extends GiftCard {
   AllProducts;
-  constructor(CardName, Discount, Product) {
+  constructor(CardName, Discount) {
     super(CardName, Discount);
-    this.Product = Product;
-    this.CardName = CardName;
     this.AllProducts = [];
-    this.AddProducts(this.Product);
   }
   AddProducts(Product) {
     this.AllProducts.push(Product);
@@ -14,9 +11,10 @@ export class IntelGift extends GiftCard {
   CalcDiscount(Product) {
     let discount = 0;
     this.AllProducts.forEach((element) => {
-      if (element.Name == Product.ProductName) {
-        return (discount = element.Discount * Product.ProductPrice);
+      if (element.ProductName == Product) {
+        discount = (1 - this.Discount / 100) * element.ProductPrice;
       }
     });
+    return discount;
   }
 }
