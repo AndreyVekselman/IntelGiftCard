@@ -20,7 +20,9 @@ IntelMax.AddProducts(Tea);
 IntelMax.AddProducts(Coffee);
 IntelMax.AddProducts(IceCream);
 console.log(IntelMax);
-const IntelFoodCard = new IntelGift("IntelFoodCard", 25, Tea);
+const IntelFoodCard = new IntelGift("IntelFoodCard", 25);
+IntelFoodCard.AddProducts(MilkShake);
+console.log(IntelFoodCard);
 
 // create company
 const Tower = new Company("Tower");
@@ -35,6 +37,7 @@ Intel.PrintGifts();
 
 Tower.AddGiftCard(Max);
 Tower.AddGiftCard(FoodCard);
+Tower.AddGiftCard(Japanica);
 Tower.PrintGifts();
 
 Tower.AllCards.forEach((element) => {
