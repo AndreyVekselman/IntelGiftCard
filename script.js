@@ -9,7 +9,7 @@ const Tea = new Product("Tea", 8); //price 8NIS
 const IceCream = new Product("IceCream", 15); //price 15NIS
 const MilkShake = new Product("MilkShake", 21); //price 21NIS
 
-//create Gifts
+//create Gifts (Cupons)
 const Max = new GiftCard("Max", 10); // discount 10%
 const FoodCard = new GiftCard("FoodCard", 25); // discount 25%
 const Japanica = new GiftCard("Japanica", 5); // discount 5%
@@ -44,6 +44,22 @@ Tower.AllCards.forEach((element) => {
   element.CalcDiscount(30);
 });
 
-console.log(
-  "Intel price for Tea after discount:" + IntelMax.CalcDiscount("Tea")
-);
+function LookForDiscount(Product) {
+  let i = 0;
+  let discount = 0;
+  while (i < Intel.AllCards.length) {
+    if (discount == 0) {
+      discount = Intel.AllCards[i].CalcDiscount(Product);
+      i++;
+    } else i += Intel.AllCards.length;
+  }
+  if (discount == 0) {
+    console.log(`No discount found for ${Product}`);
+  } else {
+    console.log(`Price after discount for ${Product} is ${discount}`);
+  }
+}
+//// looking for discount in Intel GiftCards
+LookForDiscount("Tea");
+LookForDiscount("Coffee");
+LookForDiscount("MilkShake");
