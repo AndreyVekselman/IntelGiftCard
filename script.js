@@ -2,6 +2,7 @@ import { GiftCard } from "./GiftCard.mjs";
 import { Company } from "./Company.mjs";
 import { Product } from "./Product.mjs";
 import { IntelGift } from "./IntelGift.mjs";
+import { LookForDiscount } from "./LookForDiscount.mjs";
 
 //create products
 const Coffee = new Product("Coffee", 10); //price 10NIS
@@ -44,22 +45,7 @@ Tower.AllCards.forEach((element) => {
   element.CalcDiscount(30);
 });
 
-function LookForDiscount(Product) {
-  let i = 0;
-  let discount = 0;
-  while (i < Intel.AllCards.length) {
-    if (discount == 0) {
-      discount = Intel.AllCards[i].CalcDiscount(Product);
-      i++;
-    } else i += Intel.AllCards.length;
-  }
-  if (discount == 0) {
-    console.log(`No discount found for ${Product}`);
-  } else {
-    console.log(`Price after discount for ${Product} is ${discount}`);
-  }
-}
-//// looking for discount in Intel GiftCards
-LookForDiscount("Tea");
-LookForDiscount("Coffee");
-LookForDiscount("MilkShake");
+console.log(LookForDiscount(Intel, "Tea"));
+console.log(LookForDiscount(Intel, "Coffee"));
+console.log(LookForDiscount(Intel, "MilkShake"));
+console.log(LookForDiscount(Intel, "Milk"));
